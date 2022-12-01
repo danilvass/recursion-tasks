@@ -13,8 +13,8 @@ public class Recursion {
 
     public static int digitSum(int n) {
         if (n < 10) return n;
-        int firstDigit = n % 10;
-        return firstDigit + digitSum(n / 10);
+        int lastDigit = n % 10;
+        return lastDigit + digitSum(n / 10);
     }
 
     public static boolean isPalindrome(String str) {
@@ -24,13 +24,5 @@ public class Recursion {
 
         return isPalindrome(str.substring(1, len - 1));
     }
-
-    public static void printOnlyEven(int[] arr) {
-        if (arr.length == 0) return;
-        if (arr[1] % 2 == 0) System.out.println(arr[1]);
-        new ArrayList<Integer>().addAll(arr);
-        printOnlyEven(arr.Skip(1));
-    }
-
 
 }
