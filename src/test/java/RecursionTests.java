@@ -75,4 +75,12 @@ class RecursionTests {
         assertEquals(7, Recursion.secondMax(new int[] { 0, 0, 0, 8, 0, 0, 7, 0, 7 } ));
     }
 
+    @Test
+    void test_listCount() {
+        assertEquals(0, Recursion.listCount(new int[] { }));
+        assertEquals(1, Recursion.listCount(new int[] { 1 }));
+        assertEquals(2, Recursion.listCount(new int[] { 1, 2 }));
+        assertEquals(3, Recursion.listCount(new int[] { 1, 2, 3 }));
+    }
+
 }

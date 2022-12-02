@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.Arrays;
+
 public class Recursion {
 
     //1 Task
@@ -59,6 +61,12 @@ public class Recursion {
             secondLargest = arr[index];
         }
         return findSecondMax(arr, index + 1, largest, secondLargest);
+    }
+
+    //3 Task
+    public static int listCount(int arr[]) {
+        if (arr.length == 0) { return 0; }
+        return 1 + listCount(Arrays.copyOfRange(arr, 1, arr.length));
     }
 
 }
