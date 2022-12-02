@@ -49,4 +49,30 @@ class RecursionTests {
         assertTrue(Recursion.isPalindrome("aaaaaaaaa0aaaaaaaaa"));
     }
 
+    @Test
+    void test_printEvenNumbers() {
+        int[] arr = {1, 2, 3, 4, 5};
+        Recursion.printEventNumbers(arr, 0);
+    }
+
+    @Test
+    void test_printEvenIndices() {
+        int[] arr = {1, 2, 3, 4, 5};
+        Recursion.printEvenIndices(arr, 0);
+    }
+
+    @Test
+    void test_findSecondMax() {
+        assertEquals(4, Recursion.secondMax(new int[] { 1, 2, 3, 4, 5 } ));
+        assertEquals(5, Recursion.secondMax(new int[] { 1, 2, 3, 4, 5, 5 } ));
+        assertEquals(5, Recursion.secondMax(new int[] { 5, 1, 2, 3, 4, 5 } ));
+        assertEquals(5, Recursion.secondMax(new int[] { 9, 5, 1, 2, 3, 4, 5 } ));
+        assertEquals(9, Recursion.secondMax(new int[] { 9, 5, 1, 2, 9, 3, 4, 5 } ));
+        assertEquals(9, Recursion.secondMax(new int[] { 9, 5, 1, 2, 9, 3, 4, 5, 9 } ));
+        assertEquals(9, Recursion.secondMax(new int[] { 0, 0, 0, 0, 9, 5, 1, 2, 9, 3, 4, 5, 9 } ));
+        assertEquals(9, Recursion.secondMax(new int[] { 0, 9, 0, 9, 0, 8, 0, 8, 0, 7, 0, 7 } ));
+        assertEquals(8, Recursion.secondMax(new int[] { 0, 0, 9, 0, 8, 0, 8, 0, 7, 0, 7 } ));
+        assertEquals(7, Recursion.secondMax(new int[] { 0, 0, 0, 8, 0, 0, 7, 0, 7 } ));
+    }
+
 }
