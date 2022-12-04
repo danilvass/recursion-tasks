@@ -49,7 +49,9 @@ public class Recursion {
     public static int secondMax(int arr[]) {
         if (arr.length == 0) { return 0; }
         if (arr.length == 1) { return arr[0]; }
-        return findSecondMax(arr, 0, Integer.MIN_VALUE, Integer.MIN_VALUE);
+        int largest = Math.max(arr[0], arr[1]);
+        int secondLargest = Math.min(arr[0], arr[1]);;
+        return findSecondMax(arr, 2, largest, secondLargest);
     }
 
     private static int findSecondMax(int arr[], int index, int largest, int secondLargest) {
@@ -57,7 +59,7 @@ public class Recursion {
         if (arr[index] >= largest) {
             secondLargest = largest;
             largest = arr[index];
-        } else if (arr[index] >= secondLargest) {
+        } else if (arr[index] > secondLargest) {
             secondLargest = arr[index];
         }
         return findSecondMax(arr, index + 1, largest, secondLargest);
