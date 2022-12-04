@@ -64,9 +64,13 @@ public class Recursion {
     }
 
     //3 Task
-    public static int listCount(int arr[], int index) {
+    public static int listCount(int arr[]) {
+        return findListCount(arr, 0);
+    }
+
+    private static int findListCount(int arr[], int index) {
         if (index >= arr.length) { return 0; }
-        return 1 + listCount(arr, index + 1);
+        return 1 + findListCount(arr, index + 1);
     }
 
 }
