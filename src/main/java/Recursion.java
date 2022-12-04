@@ -64,9 +64,9 @@ public class Recursion {
     }
 
     //3 Task
-    public static int listCount(int arr[]) {
-        if (arr.length == 0) { return 0; }
-        return 1 + listCount(Arrays.copyOfRange(arr, 1, arr.length));
+    public static int listCount(int arr[], int index) {
+        if (index >= arr.length) { return 0; }
+        return 1 + listCount(arr, index + 1);
     }
 
 }

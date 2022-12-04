@@ -77,10 +77,10 @@ class RecursionTests {
 
     @Test
     void test_listCount() {
-        assertEquals(0, Recursion.listCount(new int[] { }));
-        assertEquals(1, Recursion.listCount(new int[] { 1 }));
-        assertEquals(2, Recursion.listCount(new int[] { 1, 2 }));
-        assertEquals(3, Recursion.listCount(new int[] { 1, 2, 3 }));
+        assertEquals(0, Recursion.listCount(new int[] { }, 0));
+        assertEquals(1, Recursion.listCount(new int[] { 1 }, 0));
+        assertEquals(2, Recursion.listCount(new int[] { 1, 2 }, 0));
+        assertEquals(3, Recursion.listCount(new int[] { 1, 2, 3 }, 0));
     }
 
 }
