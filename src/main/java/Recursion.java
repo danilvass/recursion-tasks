@@ -1,7 +1,7 @@
 package main.java;
 
 import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Recursion {
 
@@ -108,6 +108,26 @@ public class Recursion {
             right--;
         }
         return checkIsBalanced(result, left, right);
+    }
+
+    public static ArrayList<String> generateBalancedParentheses(int count) {
+        ArrayList<String> list = new ArrayList<>();
+        generateAllBalancedParentheses("", 0, 0, count, list);
+        return list;
+    }
+
+    private static void generateAllBalancedParentheses(String str, int left, int right, int count, ArrayList<String> arr) {
+        if(left + right == 2 * count) {
+            arr.add(str);
+            return;
+        }
+
+        if (left < count) {
+            generateAllBalancedParentheses(str + "(", left + 1, right, count, arr);
+        }
+        if (right < left) {
+            generateAllBalancedParentheses(str + ")", left, right + 1, count, arr);
+        }
     }
 
 }

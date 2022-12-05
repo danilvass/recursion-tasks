@@ -2,6 +2,8 @@ package test.java;
 import main.java.Recursion;
 import org.junit.jupiter.api.Test;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -116,6 +118,27 @@ class RecursionTests {
     @Test
     void test_allFilesInDirectory() {
         Recursion.allFilesInDirectory(new File("").getAbsoluteFile());
+    }
+
+    @Test
+    void test_generateBalancedParentheses() {
+        assertParentheses(1, new String[]{"()"});
+        assertParentheses(2, new String[]{"(())", "()()"});
+
+        assertParentheses(3, new String[]{
+                "((()))", "(()())", "(())()", "()(())", "()()()"
+        });
+
+        assertParentheses(4, new String[]{
+                "(((())))", "((()()))", "((())())", "((()))()",
+                "(()(()))", "(()()())", "(()())()", "(())(())",
+                "(())()()", "()((()))", "()(()())", "()(())()",
+                "()()(())", "()()()()"
+        });
+    }
+
+    private void assertParentheses(int count, String[] expected) {
+        assertTrue(Arrays.equals(Recursion.generateBalancedParentheses(count).toArray(), expected));
     }
 
 }
