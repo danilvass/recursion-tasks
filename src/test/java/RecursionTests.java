@@ -83,4 +83,32 @@ class RecursionTests {
         assertEquals(3, Recursion.listCount(new int[] { 1, 2, 3 }));
     }
 
+    @Test
+    void test_isBalanced() {
+        assertTrue(Recursion.isBalanced("()"));
+        assertTrue(Recursion.isBalanced("()()"));
+        assertTrue(Recursion.isBalanced("(())"));
+        assertTrue(Recursion.isBalanced("(())()"));
+        assertTrue(Recursion.isBalanced("(((()()())))"));
+        assertTrue(Recursion.isBalanced("(()(((()()()))))"));
+        assertTrue(Recursion.isBalanced("((()(((()()())))))"));
+        assertTrue(Recursion.isBalanced("(()()()()()(())(()(((()()())))))"));
+        assertTrue(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))"));
+        assertTrue(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()"));
+        assertTrue(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()"));
+
+        assertFalse(Recursion.isBalanced("())"));
+        assertFalse(Recursion.isBalanced("()))"));
+        assertFalse(Recursion.isBalanced(")(()"));
+        assertFalse(Recursion.isBalanced("(()"));
+        assertFalse(Recursion.isBalanced("(()"));
+        assertFalse(Recursion.isBalanced("(((()()()))))"));
+        assertFalse(Recursion.isBalanced("((()(((()()()))))"));
+        assertFalse(Recursion.isBalanced(")()(()()()()()(())(()(((()()())))))"));
+        assertFalse(Recursion.isBalanced("(()(()()()()()(())(()(((()()())))))()()()()("));
+        assertFalse(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()("));
+        assertFalse(Recursion.isBalanced("))()(()()()()()(())(()(((()()())))))()()()()("));
+        assertFalse(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()(("));
+    }
+
 }

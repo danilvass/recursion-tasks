@@ -75,4 +75,26 @@ public class Recursion {
         return 1 + findListCount(arr, index + 1);
     }
 
+    //Extra Task
+    public static boolean isBalanced(String str) {
+        if (str.length() % 2 == 1) { return false; }
+        return checkIsBalanced(str, 0,1);
+    }
+
+    private static boolean checkIsBalanced(String str, int left, int right) {
+        if (str.length() == 0) { return true; }
+        if (left >= str.length() || right >= str.length()) { return false; }
+
+        if (str.charAt(left) == str.charAt(right) || str.charAt(left) == ')' && str.charAt(right) == '(') {
+            return checkIsBalanced(str, right, right + 1);
+        }
+
+        String result = str.substring(0, left) + str.substring(right + 1);
+        if (left != 0) {
+            left--;
+            right--;
+        }
+        return checkIsBalanced(result, left, right);
+    }
+
 }
