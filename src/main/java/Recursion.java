@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Recursion {
@@ -73,6 +74,18 @@ public class Recursion {
     private static int findListCount(int arr[], int index) {
         if (index >= arr.length) { return 0; }
         return 1 + findListCount(arr, index + 1);
+    }
+
+    //8 Task
+    public static void allFilesInDirectory(File filePath) {
+        File[] files = filePath.listFiles();
+        for (File fileOrDirectory: files) {
+            if (fileOrDirectory.isFile()) {
+                System.out.println("File " + fileOrDirectory.getName() + "; path: " + fileOrDirectory.getPath());
+            } else {
+                allFilesInDirectory(fileOrDirectory);
+            }
+        }
     }
 
     //Extra Task

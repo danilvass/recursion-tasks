@@ -1,6 +1,8 @@
 package test.java;
 import main.java.Recursion;
 import org.junit.jupiter.api.Test;
+import java.io.File;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RecursionTests {
@@ -109,6 +111,11 @@ class RecursionTests {
         assertFalse(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()("));
         assertFalse(Recursion.isBalanced("))()(()()()()()(())(()(((()()())))))()()()()("));
         assertFalse(Recursion.isBalanced("()(()()()()()(())(()(((()()())))))()()()()(("));
+    }
+
+    @Test
+    void test_allFilesInDirectory() {
+        Recursion.allFilesInDirectory(new File("").getAbsoluteFile());
     }
 
 }
