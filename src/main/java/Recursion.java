@@ -79,19 +79,17 @@ public class Recursion {
     //8 Task
     public static ArrayList<File> allFilesInDirectory(File filePath) {
         ArrayList<File> list = new ArrayList<>();
-        getAllFilesInDirectory(filePath, list);
-        return list;
-    }
 
-    private static void getAllFilesInDirectory(File filePath, ArrayList<File> list) {
-        File[] files = filePath.listFiles();
-        for (File fileOrDirectory: files) {
-            if (fileOrDirectory.isFile()) {
-                list.add(fileOrDirectory);
-            } else {
-                getAllFilesInDirectory(fileOrDirectory, list);
-            }
+        if (filePath.isFile()) {
+            list.add(filePath);
+            return list;
         }
+
+        for (File fileOrDirectory: filePath.listFiles()) {
+            list.addAll(allFilesInDirectory(fileOrDirectory));
+        }
+
+        return list;
     }
 
     //Extra Task
