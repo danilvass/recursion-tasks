@@ -117,7 +117,11 @@ class RecursionTests {
 
     @Test
     void test_allFilesInDirectory() {
-        Recursion.allFilesInDirectory(new File("").getAbsoluteFile());
+        ArrayList<File> files = Recursion.allFilesInDirectory(new File("").getAbsoluteFile());
+        for (File file: files) {
+            assertTrue(file.isFile());
+            System.out.println(file.getName());
+        }
     }
 
     @Test
